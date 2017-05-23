@@ -2,7 +2,7 @@ let Player = {
 	player: null,
 
 	init(domId, playerId, onReady){
-		window.onYouTubeIframeAPIready = () => {
+		window.onYouTubeIframeAPIReady = () => {
 			this.onIframeReady(domId, playerId, onReady)
 		}
 		let youtubeScriptTag = document. createElement("script")
@@ -11,7 +11,7 @@ let Player = {
 	},
 
 	onIframeReady(domId, playerId, onReady){
-		this.player = new YT.playerId(domId, {
+		this.player = new YT.Player(domId, {
 			height: "360",
 			width: "420",
 			videoId: playerId,
@@ -22,7 +22,7 @@ let Player = {
 		})
 	},
 
-	onPlayerStateChange(event){},
+	onPlayerStateChange(event){ },
 	getCurrentTime(){ return Math.floor(this.player.getCurrentTime() * 1000)},
 	seekTo(millsec){ return this.player.seekTo(millsec / 1000)}
 	

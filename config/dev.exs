@@ -43,3 +43,5 @@ config :rumbl, Rumbl.Repo,
   pool_size: 10
 
 import_config "dev.secret.exs"
+# wolfram app_id
+# mix run priv/repo/backed_seeds.exs

@@ -45,7 +45,7 @@ defmodule Rumbl.InfoSys do
           await_result(tail, results ++ acc, timeout)
        {:DOWN, ^monitor_ref, :process, ^pid, _reason} ->
           await_result(tail, acc, timeout)
-       :timeout ->
+       :timedout ->
           kill(pid, monitor_ref)
           await_result(tail, acc, 0)
      after
